@@ -1,0 +1,16 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  width: 100%;
+  font-family: 'Hind Siliguri', sans-serif;
+}
+
+img{
+  width: 320px;
+}
+
+h1{
+  font-family: 'Lobster', cursive;
+}

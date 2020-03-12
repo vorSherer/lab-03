@@ -1,0 +1,12 @@
+section{
+  border: 1px solid black;
+  text-align: center;
+  display: inline;
+  float: left;
+}
+
+footer{
+  clear: both;
+  display: block;
+
+}

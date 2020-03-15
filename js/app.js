@@ -15,12 +15,14 @@ function Animal(obj){
 }
 
 Animal.prototype.render = function(){
+  // step1$2 w handlebars: grab the template script AND then complie it
   let template = Handlebars.compile($('#photo-template').html());
   return template(this);
 }
 
 Animal.readJson = (page) => {
-  Animal.all = [];
+  console.log('Now in readJson page: ' + page);
+  Animal.all = [];//all the instances of the Animal object
 
   $('main').empty();
 
@@ -29,18 +31,18 @@ Animal.readJson = (page) => {
     dataType: 'json'
   };
   $.ajax(`data/page-${page}.json`, ajaxSettings)
-  .then(data => {
+    .then(data => {
       data.forEach(item => {
         Animal.all.push(new Animal(item));
       });
+      // sort the titl, to the render can be organiced
       Animal.sortBy(Animal.all,'title');
 
       Animal.all.forEach(image => {
+        // step4: add the compiled json to the page
         $(`#image-container`).append(image.render());
-        });
-        Animal.populateFilter();
-        }, (xhr, status, err) => {
-      console.error("Ajax call failed");
+      });
+      Animal.populateFilter();
     });
 }
 
@@ -50,7 +52,7 @@ Animal.sortBy = (array, property) => {
     let firstComparison = a[property];
     let secondComparison = b[property];
     return(firstComparison > secondComparison) ? 1 :
-    (firstComparison < secondComparison) ? -1 : 0;
+      (firstComparison < secondComparison) ? -1 : 0;
   });
 };
 
@@ -81,6 +83,8 @@ Animal.handleFilter = () => {
 
 
 Animal.handleSort = () => {
+  console.log('In handleSort');
+  console.log('Sort by' + $(this).attr('id'));
   $('input').on('change', function () {
     $('select').val('default');
     $('div').remove();
@@ -118,82 +122,72 @@ Animal.handleNavEvents = () => {
   });
 };
 
+
+// MAIN
 $(() => {
+  console.log('Now in Main');
   Animal.readJson(1);
   Animal.handleFilter();
-  Animal.handleImagesEvents();
+  // Animal.handleImagesEvents(); //makes clones. is working
   Animal.handleNavEvents();
   Animal.handleSort()
 });
 
 
 
-function populateArrKeywords(keyword) {
-  if( !arrKeywords.includes(keyword) ) {
-    arrKeywords.push(keyword);
-  }
-}
+// function populateArrKeywords(keyword) {
+//   if( !arrKeywords.includes(keyword) ) {
+//     arrKeywords.push(keyword);
+//   }
+// }
 
 
-function loadAnimalsPageOne(){
-  $.ajax('data/page-1.json', {method:'GET', dataType: 'JSON'})
-    .then( eleObj => {
-      eleObj.forEach(element => {
-        (new Animal(element).render());
-        populateArrKeywords(element.keyword);
-      });
-      populateDropbox();
-    })
-}
+// function loadAnimalsPageOne(){
+//   $.ajax('data/page-1.json', {method:'GET', dataType: 'JSON'})
+//     .then( objAlax => {
+//       objAlax.forEach(animalInAjax => {
+//         (new Animal(animalInAjax).render());
+//         populateArrKeywords(animalInAjax.keyword);
+//       });
+//       populateDropbox();
+//     })
+// }
 
-function loadAnimalsPageTwo(){
-  console.log('in page2 now');
-  // $().ready(() => {
-  $.ajax('data/page-2.json', {method:'GET', dataType: 'JSON'})
-    .then( eleObj => {
-      console.log('in ajax part');
-      eleObj.forEach(element => {
-        (new Animal(element).render());
-        populateArrKeywords(element.keyword);
-      });
-      populateDropbox();
-    })
-  // });
-}
+// function loadAnimalsPageTwo(){
+//   console.log('in page2 now');
+//   // $().ready(() => {
+//   $.ajax('data/page-2.json', {method:'GET', dataType: 'JSON'})
+//     .then( eleObj => {
+//       console.log('in ajax part');
+//       eleObj.forEach(element => {
+//         (new Animal(element).render());
+//         populateArrKeywords(element.keyword);
+//       });
+//       populateDropbox();
+//     })
+//   // });
+// }
 
-function populateDropbox() {
-  arrKeywords.forEach(key => {
-    let $option = $(`<option class="${key}">${key}</option>`);
-    $('#list').append($option);
-  });
-}
+// function populateDropbox() {
+//   arrKeywords.forEach(key => {
+//     let $option = $(`<option class="${key}">${key}</option>`);
+//     $('#list').append($option);
+//   });
+// }
 
 // Event listener
 
-$(() => {
-  $('select').on('change', function() {
-    // console.log(this.value);
-    if (this.value === 'all') {
-      $('section').show();
-      $('#photo-template').hide();
-    } else if (this.value !== 'default') {
-      $('section').hide();
-      $(`section[id="${this.value}"]`).show();
-    }
-  });
-});
+// $(() => {
+//   $('select').on('change', function() {
+//     // console.log(this.value);
+//     if (this.value === 'all') {
+//       $('section').show();
+//       $('#photo-template').hide();
+//     } else if (this.value !== 'default') {
+//       $('section').hide();
+//       $(`section[id="${this.value}"]`).show();
+//     }
+//   });
+// });
 
 
-// listener bottom two
-$(() => {
-  $('#btnPageTwo').on('click', function() {
-    loadAnimalsPageTwo();
-  });
-});
-
-
-// retrieve the data from the file, but until is loaded
-$().ready(() => {
-  console.log ('Page loaded');
-  loadAnimalsPageOne();
-});

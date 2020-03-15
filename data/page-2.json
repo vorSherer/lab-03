@@ -76,25 +76,11 @@
     "keyword": "unicorn",
     "horns": 1
   },
-  // {
-  //   "image_url": "https://www.maxpixel.net/static/photo/1x/Sky-Head-Giraffe-Animal-Portrait-3430849.jpg",
-  //   "title": "Giraffe",
-  //   "description": "This giraffe is as tall as the sky",
-  //   "keyword": "giraffe",
-  //   "horns": 2
-  // },
   {
     "image_url": "https://i.pinimg.com/originals/34/b8/4f/34b84f9b61883e69181d81f21d8f1a2d.jpg",
     "title": "Trotting rhino",
     "description": "He has a little bit of pep in his step",
     "keyword": "rhino",
-    "horns": 2
-  },
-  {
-    "image_url": "https://www.asianscientist.com/wp-content/uploads/bfi_thumb/Markhor-Goat-Species-Makes-Comeback-In-Pakistanj-2sdpf8o7u9d8lby3t6rif4.jpg",
-    "title": "Markhor family",
-    "description": "Seriously those horns are amazing",
-    "keyword": "markhor",
     "horns": 2
   },
   {

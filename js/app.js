@@ -17,14 +17,6 @@ function Animal(obj){
 Animal.prototype.render = function(){
   let template = Handlebars.compile($('#photo-template').html());
   return template(this);
-  // const myTemplate = $('#photo-template').html();
-  // // const $newSection = $('<section></section>');
-  // const $newSection = $(`<section id=${this.keyword}></section>`);
-  // $newSection.html(myTemplate);
-  // $newSection.find('h2').text(this.title);
-  // $newSection.find('img').attr('src', this.image_url);
-  // $newSection.find('p').text(this.description);
-  // $('main').append($newSection);
 }
 
 Animal.readJson = (page) => {
@@ -38,16 +30,18 @@ Animal.readJson = (page) => {
   };
   $.ajax(`data/page-${page}.json`, ajaxSettings)
   .then(data => {
-    data.forEach(item => {
-      Animal.all.push(new Animal(item));
-    });
-    Animal.sortBy(Animal.all,'title');
+      data.forEach(item => {
+        Animal.all.push(new Animal(item));
+      });
+      Animal.sortBy(Animal.all,'title');
 
-    Animal.all.forEach(image => {
-      $(`#image-container`).append(image.render());
+      Animal.all.forEach(image => {
+        $(`#image-container`).append(image.render());
+        });
+        Animal.populateFilter();
+        }, (xhr, status, err) => {
+      console.error("Ajax call failed");
     });
-    Animal.populateFilter();
-  });
 }
 
 Animal.sortBy = (array, property) => {
@@ -133,9 +127,6 @@ $(() => {
 });
 
 
-///////////
-
-// imageClone.attr('class', this.keyword);
 
 function populateArrKeywords(keyword) {
   if( !arrKeywords.includes(keyword) ) {
@@ -196,16 +187,7 @@ $(() => {
 // listener bottom two
 $(() => {
   $('#btnPageTwo').on('click', function() {
-   
-    // if (this.value === 'all') {
-    //   $('section').show();
-  //  $('#photo-template').hide();
-    // } else if (this.value !== 'default') {
-      // $('section').hide();
-      loadAnimalsPageTwo();
-      // $('section').show();
-    //   $(`section[id="${this.value}"]`).show();
-    // }
+    loadAnimalsPageTwo();
   });
 });
 

@@ -1,4 +1,4 @@
-# LAB - Number
+# LAB03 - Number
 ## Project Name
 I build an app with a direct and powerful purpose. It does all of the things that it accomplishes well. I should describe the purpose and functionality so those that visit my README understand the app
 ### Author(s): Thomas Sherer	/ Iris Leal
@@ -22,10 +22,11 @@ I build an app with a direct and powerful purpose. It does all of the things tha
 ### Time Records
 # Number and name of Feature
 Feature #1: Pagination
+	# Refactoring: Iris Leal
 	# Estimate of time needed to complete
 	2H
 	# Start time
-	10:08 am
+	02:30 pm
 	# Finish time
 	## am
 	# Actual time needed to complete

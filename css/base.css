@@ -3,18 +3,18 @@
 }
 
 body{
-  width: 100%;
+  background-color: rgba(226, 64, 226, 0.205);
   font-family: 'Hind Siliguri', sans-serif;
-}
-
-img{
-  width: 320px;
+  height: 100%;
+  margin:0;
+  padding:0;
+  width: 100%;
 }
 
 h1{
   font-family: 'Lobster', cursive;
+  font-size: 100px;
+  margin: 5px;
+  width: 100%;
 }
 
-li{
-  /* float:left; */
-}

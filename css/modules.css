@@ -1,0 +1,39 @@
+/* Form and Dropbox */
+
+footer, header {
+    font-size: 25px;
+}
+
+#list {
+    font-size: 25px;
+}
+
+/* Images */
+
+#image-container {
+    display: flex;
+    flex-flow: column wrap;
+    height: 1000px;
+    margin: 10px;
+    width: 100%;
+}
+
+div {
+    border: 1px solid black;
+    margin: 5px;
+    width: 330px;
+}
+
+img{
+    width: 320px;
+}
+
+h2 {
+    font-size: 25px;
+    width: 320px;
+}
+
+p {
+    width: 320px;
+}
+

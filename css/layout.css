@@ -1,12 +1,36 @@
+footer{
+  display: flex;
+  flex-direction: row;
+}
+
+form {
+  height: 50px;
+  margin: 5px;
+}
+
+header {
+  display: block;
+}
+
+label {
+  cursor: pointer;
+}
+
+li {
+  border: 1px solid blue;
+  cursor: pointer;
+  margin: 5px;
+  padding-left: 15px;
+  width: 100px;
+}  
+
 section{
   border: 1px solid black;
   text-align: center;
   display: inline;
-  float: left;
 }
 
-footer{
-  clear: both;
-  display: block;
-
-}
+ul {
+  display: flex;
+}  
+          

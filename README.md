@@ -29,4 +29,14 @@ Feature #1 and 4: Pagination
 	# Finish time
 	5:40 pm
 	# Actual time needed to complete
-3h
+	3h
+
+Feature #3: Styling with Flexbox
+	# Estimate of time needed to complete
+	2 hrs.
+	# Start time
+	05:30 pm
+	# Finish time
+	2130 (9:21 pm)
+	# Actual time needed to complete
+	4 hrs.

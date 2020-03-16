@@ -21,13 +21,12 @@ I build an app with a direct and powerful purpose. It does all of the things tha
 * This is also a good place to reflect on the tools and resources used and learned
 ### Time Records
 # Number and name of Feature
-Feature #1: Pagination
-	# Refactoring: Iris Leal
+Feature #1 and 4: Pagination
 	# Estimate of time needed to complete
 	2H
 	# Start time
 	02:30 pm
 	# Finish time
-	## am
+	5:40 pm
 	# Actual time needed to complete
-	NN min
+3h

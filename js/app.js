@@ -38,12 +38,16 @@ Animal.readJson = (page) => {
       // sort the titl, to the render can be organiced
       Animal.sortBy(Animal.all,'title');
 
-      Animal.all.forEach(image => {
-        // step4: add the compiled json to the page
-        $(`#image-container`).append(image.render());
-      });
+      Animal.renderAll();
       Animal.populateFilter();
     });
+}
+
+Animal.renderAll = () => {
+  Animal.all.forEach(image => {
+    // step4: add the compiled json to the page
+    $(`#image-container`).append(image.render());
+  });
 }
 
 Animal.sortBy = (array, property) => {
@@ -83,15 +87,13 @@ Animal.handleFilter = () => {
 
 
 Animal.handleSort = () => {
-  console.log('In handleSort');
-  console.log('Sort by' + $(this).attr('id'));
   $('input').on('change', function () {
     $('select').val('default');
     $('div').remove();
     Animal.sortBy(Animal.all, $(this).attr('id'));
-    Animal.all.forEach(image => {
-      $('image-container').append(image.render());
-    } );
+ 
+    Animal.renderAll();
+    //here the images need to be displayed
   });
 };
 
